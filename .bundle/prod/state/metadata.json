@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "config": {
+    "bundle": {
+      "name": "databricks_sales_capstone",
+      "target": "prod",
+      "mode": "production",
+      "git": {
+        "branch": "main",
+        "origin_url": "https://github.com/Karthik22112002/databricks_sales",
+        "commit": "cb5b5e3d9159f7e6f3df9c992624e38d0eaeebad",
+        "bundle_root_path": "."
+      }
+    },
+    "workspace": {
+      "file_path": "/Workspace/Users/alihi122007@gmail.com/databricks_sales_capstone/.bundle/prod/files"
+    },
+    "resources": {},
+    "presets": {
+      "source_linked_deployment": false
+    }
+  },
+  "extra": {}
+}

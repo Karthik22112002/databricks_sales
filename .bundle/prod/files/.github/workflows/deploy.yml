@@ -1,0 +1,39 @@
+name: Deploy Databricks
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_CLIENT_ID: ${{ secrets.DATABRICKS_CLIENT_ID }}
+      DATABRICKS_CLIENT_SECRET: ${{ secrets.DATABRICKS_CLIENT_SECRET }}
+      DATABRICKS_AUTH_TYPE: oauth-m2m
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Databricks CLI
+        uses: databricks/setup-cli@main
+
+      - name: Check Databricks Authentication
+        run: |
+          databricks auth describe
+
+      - name: Validate Bundle
+        run: |
+          databricks bundle validate --target prod
+
+      - name: Deploy Bundle
+        run: |
+          databricks bundle deploy --target prod
+
+      - name: Run Job Pipeline
+        run: |
+          databricks bundle run sales_etl_job --target prod
