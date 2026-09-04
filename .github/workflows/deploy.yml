@@ -28,12 +28,12 @@ jobs:
 
       - name: Validate Bundle
         run: |
-          databricks bundle validate --target dev
+          databricks bundle validate --target prod
 
       - name: Deploy Bundle
         run: |
-          databricks bundle deploy --target dev
+          databricks bundle deploy --target prod
 
       - name: Run Job Pipeline
         run: |
-          databricks bundle run sales_etl_job --target dev
+          databricks bundle run sales_etl_job --target prod
