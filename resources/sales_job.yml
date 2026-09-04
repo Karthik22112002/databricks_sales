@@ -3,16 +3,10 @@ resources:
     sales_etl_job:
       name: sales_etl_job
       
-      job_clusters:
-        - job_cluster_key: sales_job_cluster
-          new_cluster:
-            spark_version: "13.3.x-scala2.12"
-            node_type_id: "i3.xlarge"
-            num_workers: 1
-
+      # Remove job_clusters entirely and use serverless compute for tasks
       tasks:
         - task_key: bronze_ingestion
-          job_cluster_key: sales_job_cluster
+          existing_cluster_id: "" # Or omit cluster keys if serverless is default, or use serverless syntax
           notebook_task:
             notebook_path: ../src/01_bronze_ingestion.ipynb
 
