@@ -2,7 +2,7 @@ bundle:
   name: databricks_sales_capstone
 
 include:
-  - resources/*.yml
+  - "resources/*.yml"
 
 targets:
   dev:
