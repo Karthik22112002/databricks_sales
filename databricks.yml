@@ -1,0 +1,17 @@
+bundle:
+  name: databricks_sales_capstone
+
+include:
+  - resources/*.yml
+
+targets:
+  dev:
+    default: true
+    workspace:
+      host: https://dbc-586a4832-3302.cloud.databricks.com
+
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-586a4832-3302.cloud.databricks.com
+      root_path: /Shared/.bundle/${bundle.name}/${bundle.target}
