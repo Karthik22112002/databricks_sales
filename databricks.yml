@@ -11,7 +11,6 @@ targets:
       host: https://dbc-586a4832-3302.cloud.databricks.com
 
   prod:
-    mode: production
     workspace:
       host: https://dbc-586a4832-3302.cloud.databricks.com
       # Use a neutral path or remove root_path override so production defaults safely
