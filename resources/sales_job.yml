@@ -13,18 +13,18 @@ resources:
         - task_key: bronze_ingestion
           job_cluster_key: sales_job_cluster
           spark_python_task:
-            python_file: ../src/01_bronze_ingestion.py
+            python_file: ../src/01_bronze_ingestion
 
         - task_key: silver_cleaning
           depends_on:
             - task_key: bronze_ingestion
           job_cluster_key: sales_job_cluster
           spark_python_task:
-            python_file: ../src/02_silver_cleaning.py
+            python_file: ../src/02_silver_cleaning
 
         - task_key: gold_analytics
           depends_on:
             - task_key: silver_cleaning
           job_cluster_key: sales_job_cluster
           spark_python_task:
-            python_file: ../src/03_gold_analytics.py
+            python_file: ../src/03_gold_analytics
